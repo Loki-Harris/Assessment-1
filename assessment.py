@@ -2,13 +2,14 @@
 import time
 
 # All of these lists are used to create the burger
-order = [[]]
+order = [] 
 meat = ["Beef", "Chicken", "Fish", "None"]
 cheese = ["Cheddar", "Swiss", "Grated", "None"]
 toppings = ["Lettuce", "Tomato", "Onion", "Egg", "Bacon", "None"]
 sauce = ["Tomato Sauce", "BBQ Sauce", "Mayonnaise", "Aioli", "None"]
 sides = ["Fries", "Hashbrown", "Salad", "None"]
 drink = ["Coca-Cola", "Pepsi", "Water", "None"]
+burger = []
 
 print("Welcome to the Burger Shop")
 
@@ -31,7 +32,45 @@ def menu():
 
 # Will be how the user will create their burger with sides and drink
 def create_burger():
-    print("Hello")
+    print(meat)
+    user_choice_meat = input("We Will start with the meat please type the meat you would like\n>")
+    print("Next is cheese")
+    print(cheese)
+    user_choice_cheese = input(">")
+    print("Now are the toppings")
+    add_toppings()
+    print("Next are sides")
+    print(sides)
+    user_choice_sides = input(">")
+    print("lastly what drink would you like")
+    print(drink)
+    user_choice_drink = input(">")
+    burger.append(user_choice_meat)
+    burger.append(user_choice_cheese)
+    burger.append(user_choice_sides)
+    burger.append(user_choice_drink)
+    order.append(burger)
+    menu()
+
+
+def add_toppings():
+        print(toppings)
+        user_choice_toppings = input(">")
+        repeater = True
+        while repeater == True:
+            user_choice = input("Would you like to add more toppings? Y/N\n>")
+            if user_choice == "Y" or user_choice == "y":
+                print("Alright what else would you like to add")
+                burger.append(user_choice_toppings)
+                print(toppings)
+                user_choice_toppings = input(">")
+            elif user_choice == "N" or user_choice == "n":
+                print("Ok next")
+                repeater = False
+                burger.append(user_choice_toppings)
+            else:
+                print("That is not an option")
+                add_toppings()
 
 # Is how the user will check what they are ordering and if they want to remove anything from their order
 def cart():
